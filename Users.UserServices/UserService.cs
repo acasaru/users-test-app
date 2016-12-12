@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
+using System.ServiceModel.Web;
 using Users.DAL;
 
 using DtoUser = Users.Dtos.User;
@@ -15,8 +17,11 @@ using Users.UserServices.Infrastructure;
 namespace Users.UserServices
 {
     [AutomapServiceBehaviour]
+    [ServiceContract]
     public class UserService : IUserService
     {
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/AddUser/", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, Method = "POST")]
         public void AddUser(DtoUser user)
         {
             using (UserContext userContext = new UserContext())
@@ -27,6 +32,8 @@ namespace Users.UserServices
             }
         }
 
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/DeleteUser/{userId}", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, Method = "POST")]
         public void DeleteUser(string userId)
         {
             int iUserId;
@@ -41,6 +48,8 @@ namespace Users.UserServices
             }
         }
 
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetAllUsers/", ResponseFormat = WebMessageFormat.Json)]
         public List<DtoUser> GetAllUsers()
         {
             using (UserContext userContext = new UserContext())
@@ -50,6 +59,8 @@ namespace Users.UserServices
             }
         }
 
+        [OperationContract]
+        [WebGet(UriTemplate = "/GetUser/{userId}", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json)]
         public DtoUser GetUser(string userId)
         {
             int iUserId;
@@ -63,6 +74,8 @@ namespace Users.UserServices
             }
         }
 
+        [OperationContract]
+        [WebInvoke(UriTemplate = "/UpdateUser/", ResponseFormat = WebMessageFormat.Json, RequestFormat = WebMessageFormat.Json, Method = "POST")]
         public void UpdateUser(DtoUser user)
         {
             using (UserContext userContext = new UserContext())
