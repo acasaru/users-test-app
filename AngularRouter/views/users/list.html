@@ -1,0 +1,30 @@
+﻿<div>
+    <div class="col-md-8 col-md-offset-0">
+        <h3>Users list  <span ui-sref="users.create" class="glyphicon glyphicon-plus small"></span></h3>
+
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>UserName</td>
+                    <td>First name</td>
+                    <td>Last name</td>
+                    <td>Email</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in usersCtrl.users">
+                    <td>{{user.Id}} </td>
+                    <td>{{user.UserName}} </td>
+                    <td>{{user.FirstName}} </td>
+                    <td>{{user.LastName}} </td>
+                    <td>{{user.Email}} </td>
+                    <td><a ui-sref="users.edit({id:user.Id})">Update</a></td>
+                    <td><a ui-sref="users.delete({id:user.Id})">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+ </div>

@@ -1,0 +1,24 @@
+﻿[
+  {
+    "Id": "1",
+    "FirstName": "FirstName1",
+    "LastName": "LastName",
+    "UserName": "user1",
+    "Email": "user1@something.com"
+  },
+
+  {
+    "Id": "2",
+    "FirstName": "FirstName2",
+    "LastName": "LastName",
+    "UserName": "user2",
+    "Email": "user2@something.com"
+  },
+  {
+    "Id": "3",
+    "FirstName": "FirstName3",
+    "LastName": "LastName",
+    "UserName": "user3",
+    "Email": "user3@something.com"
+  }
+]

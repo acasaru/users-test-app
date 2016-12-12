@@ -1,0 +1,20 @@
+﻿<form  ng-submit="$ctrl.submit()" novalidate name="loginForm">
+    <h3>Login </h3>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group" >
+                <label for="username">User name</label>
+                <input type="text" class="form-control" name="username" ng-model="$ctrl.username" required/>
+                <p ng-show="loginForm.username.$invalid && loginForm.username.$touched" class="text text-danger">Username is required !</p>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" ng-model="$ctrl.password" required/>
+                <p ng-show="loginForm.password.$invalid && loginForm.password.$touched" class="text text-danger">Password is required !</p>
+            </div>
+            <div class="pull-right">
+                <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-primary">Log in</button>
+            </div>
+        </div>
+     </div>
+</form>

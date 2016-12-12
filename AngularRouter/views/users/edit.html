@@ -1,0 +1,32 @@
+﻿<form ng-submit="editCtrl.save()" name="editForm">
+    <h3>User {{editCtrl.id}}</h3>
+    <div class="col-md-6">
+
+        <div class="form-group" ng-class="{'has-error': editForm.email.$invalid && editForm.email.$touched}">
+            <label for="email">Email</label>
+            <input type="email" name="email" class="form-control" ng-model="editCtrl.user.Email" required/>
+            <p ng-show="editForm.email.$error.required && editForm.email.$touched" class="text-danger">Email is required</p>
+            <p ng-show="editForm.email.$error.email && editForm.email.$touched" class="text-danger">Email must be valid</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': editForm.firstName.$invalid && editForm.firstName.$touched}">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" class="form-control" ng-model="editCtrl.user.FirstName" required/>
+            <p ng-show="editForm.firstName.$error.required && editForm.firstName.$touched" class="text-danger">First name is required</p>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': editForm.lastName.$invalid && editForm.lastName.$touched}">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" class="form-control" ng-model="editCtrl.user.LastName" required/>
+            <p ng-show="editForm.lastName.$error.required && editForm.lastName.$touched" class="text-danger">Last name is required</p>
+        </div>
+
+        <div>
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-primary" ui-sref="users.list">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+</form>
